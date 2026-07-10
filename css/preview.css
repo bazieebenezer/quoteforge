@@ -1,0 +1,378 @@
+/* ==========================================================================
+   QuoteForge — Le papier
+   Design premium, sobre et élégant.
+   ========================================================================== */
+
+.paper {
+  width: 100%;
+  max-width: 600px;
+  background: var(--paper-bg);
+  color: var(--paper-text);
+  border-radius: 6px;
+  box-shadow: var(--shadow-paper);
+  padding: 52px 56px 44px;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--paper-accent);
+}
+
+.paper-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1.5px solid var(--paper-line);
+}
+
+.paper-company {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.paper-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: contain;
+  flex: none;
+  background: #fff;
+  border: 1px solid var(--paper-line);
+}
+
+.paper-logo-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  flex: none;
+  background: var(--paper-bg-alt);
+  border: 1px solid var(--paper-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--paper-text-soft);
+}
+
+.paper-logo-placeholder svg {
+  width: 22px;
+  height: 22px;
+}
+
+.paper-company-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--paper-text);
+  letter-spacing: -0.01em;
+}
+
+.paper-company-meta {
+  font-size: 11px;
+  color: var(--paper-text-soft);
+  line-height: 1.8;
+  margin-top: 4px;
+}
+
+.paper-doc-tag {
+  text-align: right;
+  flex: none;
+}
+
+.paper-doc-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--paper-accent);
+}
+
+.paper-doc-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--paper-text-soft);
+  margin-top: 6px;
+}
+
+.paper-doc-dates {
+  font-size: 10.5px;
+  color: var(--paper-text-soft);
+  margin-top: 12px;
+  line-height: 1.8;
+}
+
+.paper-doc-dates span {
+  font-weight: 600;
+  color: var(--paper-text);
+}
+
+/* ---------- Parties ---------- */
+
+.paper-parties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1.5px solid var(--paper-line);
+}
+
+.paper-party-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--paper-text-soft);
+  margin-bottom: 10px;
+}
+
+.paper-party-name {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--paper-text);
+}
+
+.paper-party-meta {
+  font-size: 11.5px;
+  color: var(--paper-text-soft);
+  line-height: 1.8;
+  margin-top: 5px;
+  white-space: pre-line;
+}
+
+.paper-party-empty {
+  font-size: 11.5px;
+  color: var(--paper-text-soft);
+  font-style: italic;
+}
+
+/* ---------- Tableau ---------- */
+
+.paper-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 28px;
+}
+
+.paper-table thead th {
+  text-align: left;
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--paper-text-soft);
+  padding: 0 0 12px;
+  border-bottom: 1.5px solid var(--paper-text);
+}
+
+.paper-table th.num,
+.paper-table td.num {
+  text-align: right;
+}
+
+.paper-table tbody td {
+  padding: 12px 0;
+  font-size: 12.5px;
+  border-bottom: 1px solid var(--paper-line);
+  vertical-align: top;
+}
+
+.paper-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.paper-table .desc {
+  max-width: 260px;
+  word-break: break-word;
+  color: var(--paper-text);
+}
+
+.paper-items-empty {
+  padding: 28px 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--paper-text-soft);
+  font-style: italic;
+}
+
+/* ---------- Totaux ---------- */
+
+.paper-totals {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.paper-totals-inner {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.paper-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--paper-text-soft);
+  padding: 6px 0;
+}
+
+.paper-total-row.grand {
+  margin-top: 10px;
+  padding: 14px 0 0;
+  border-top: 1.5px solid var(--paper-text);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--paper-text);
+}
+
+.paper-total-row.grand .amount {
+  color: var(--paper-accent);
+}
+
+/* ---------- Notes & pied ---------- */
+
+.paper-notes {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1.5px solid var(--paper-line);
+}
+
+.paper-notes-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--paper-text-soft);
+  margin-bottom: 8px;
+}
+
+.paper-notes-text {
+  font-size: 11.5px;
+  color: var(--paper-text-soft);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.paper-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1.5px solid var(--paper-line);
+}
+
+.paper-sign-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--paper-text-soft);
+}
+
+.paper-sign-img {
+  max-width: 220px;
+  max-height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+.paper-sign-placeholder {
+  width: 200px;
+  height: 40px;
+  border-bottom: 1.5px solid var(--paper-text-soft);
+  opacity: 0.35;
+}
+
+.paper-sign-date {
+  font-size: 10px;
+  color: var(--paper-text-soft);
+  opacity: 0.7;
+}
+
+.paper-foot-note {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 9.5px;
+  color: var(--paper-text-soft);
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Designs ---------- */
+
+.paper.design-ocean {
+  --paper-accent: #0a5c8a;
+  --paper-line: #dce8f0;
+  --paper-bg-alt: #f0f6fb;
+}
+
+.paper.design-emeraude {
+  --paper-accent: #1a7a5c;
+  --paper-line: #dceee6;
+  --paper-bg-alt: #eef7f3;
+}
+
+.paper.design-bordeaux {
+  --paper-accent: #7a1a2e;
+  --paper-line: #f0e2e6;
+  --paper-bg-alt: #faf0f2;
+}
+
+.paper.design-sable {
+  --paper-accent: #c4956a;
+  --paper-line: #f0ebe4;
+  --paper-bg-alt: #faf7f3;
+}
+
+.paper.design-ardoise {
+  --paper-accent: #4a5568;
+  --paper-line: #e8eaed;
+  --paper-bg-alt: #f4f5f7;
+}
+
+/* ---------- Impression ---------- */
+
+@media print {
+  .app-header,
+  .form-col,
+  .drawer-overlay,
+  .drawer,
+  .toast-stack,
+  .preview-toolbar {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .app-body {
+    display: block;
+    padding: 0;
+  }
+
+  .preview-stage {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .paper {
+    box-shadow: none;
+    max-width: 100%;
+  }
+}

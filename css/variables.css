@@ -1,0 +1,82 @@
+/* ==========================================================================
+   QuoteForge — Design Tokens
+   Style: Sombre & moderne — l'atelier (sombre) où l'on rédige le papier (clair)
+   ========================================================================== */
+
+:root {
+  /* --- Surfaces : le canevas de travail, sombre et profond --- */
+  --color-bg: #0a0d13;
+  --color-surface: #11141c;
+  --color-card: #161a24;
+  --color-card-hover: #1b202c;
+  --color-border: #262b38;
+  --color-border-soft: #1d212c;
+
+  /* --- Texte --- */
+  --color-text: #f3f4f7;
+  --color-text-secondary: #8c93a6;
+  --color-text-faint: #565d70;
+
+  /* --- Accent : Bleu océanique --- */
+  --color-primary: #09BCBF;
+  --color-primary-hover: #0BB6B8;
+  --color-primary-ink: #ffffff;
+  --color-primary-soft: rgba(59, 130, 246, 0.12);
+
+  /* --- États --- */
+  --color-success: #10b981;
+  --color-success-soft: rgba(16, 185, 129, 0.12);
+  --color-danger: #ef4444;
+  --color-danger-soft: rgba(239, 68, 68, 0.12);
+  --color-info: #3b82f6;
+  --color-info-soft: rgba(59, 130, 246, 0.12);
+
+  /* --- Le papier : surface du devis lui-même, toujours claire --- */
+  --paper-bg: #ffffff;
+  --paper-bg-alt: #f8f9fb;
+  --paper-line: #eaeef2;
+  --paper-text: #1a2332;
+  --paper-text-soft: #6b7a8f;
+  --paper-accent: #1a2332;
+
+  /* --- Forme --- */
+  --radius-main: 12px;
+  --radius-pill: 6px;
+
+  /* --- Ombres --- */
+  --shadow-card: none;
+  --shadow-paper: none;
+  --shadow-pop: none;
+
+  /* --- Mouvement --- */
+  --transition: all 0.2s ease;
+  --transition-fast: all 0.12s ease;
+
+  /* --- Typo --- */
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* --- Mise en page --- */
+  --header-height: 68px;
+  --form-col-width: minmax(420px, 1fr);
+  --preview-col-width: minmax(420px, 560px);
+}
+
+.light-theme {
+  --color-bg: #f3f4f6;
+  --color-surface: #ffffff;
+  --color-card: #ffffff;
+  --color-card-hover: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-border-soft: #f3f4f6;
+  --color-text: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-faint: #9ca3af;
+  --color-primary: #00071d;
+  --color-primary-hover: #000730;
+  --color-primary-ink: #ffffff;
+  --color-primary-soft: rgba(37, 99, 235, 0.1);
+  --color-success: #059669;
+  --color-danger: #dc2626;
+  --color-info: #2563eb;
+}

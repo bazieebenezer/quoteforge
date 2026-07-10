@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuoteForge | Générateur de devis</title>
+<meta name="description" content="Créez et exportez des devis professionnels en PDF, directement depuis votre navigateur.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="./images/favicon.svg" type="image/x-icon">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/preview.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ En-tête ============ -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="./images/favicon.svg">
+      </div>
+      <div class="brand-name">QuoteForge</div>
+      <!-- <span class="brand-sub">Devis professionnels, générés en quelques secondes</span> -->
+    </div>
+    <div class="header-actions">
+      <button id="btn-new" class="btn ghost-btn btn-sm" title="Nouveau devis">
+        <i class="icon" data-lucide="plus"></i><span class="btn-label">Nouveau</span>
+      </button>
+      <button id="btn-history" class="btn ghost-btn btn-sm" title="Historique">
+        <i class="icon" data-lucide="history"></i><span class="btn-label">Historique</span>
+      </button>
+      <button id="btn-theme" class="btn ghost-btn btn-sm" title="Changer de thème">
+        <i class="icon" data-lucide="sun"></i><span class="btn-label">Sombre</span>
+      </button>
+      <button id="btn-save" class="btn secondary-btn btn-sm" title="Enregistrer">
+        <i class="icon" data-lucide="save"></i><span class="btn-label">Enregistrer</span><span class="spinner"></span>
+      </button>
+      <button id="btn-pdf" class="btn primary-btn" title="Générer le PDF">
+        <i class="icon" data-lucide="download"></i><span class="btn-label">Générer le PDF</span><span class="spinner"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-body">
+
+    <!-- ============ Colonne formulaire ============ -->
+    <section class="form-col">
+
+      <!-- Entreprise -->
+      <div class="card" id="card-company">
+        <div class="card-head">
+          <div class="card-head-left">
+            <div class="card-icon"><i class="icon" data-lucide="building"></i></div>
+            <div>
+              <div class="card-title">Votre entreprise</div>
+              <div class="card-desc">Ces informations apparaissent en haut du devis.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="logo-upload" style="margin-bottom:18px;">
+          <label class="logo-drop" id="logo-drop" title="Ajouter un logo">
+            <i class="icon" id="logo-placeholder-icon" data-lucide="image"></i>
+            <img id="logo-preview-img" alt="" style="display:none;">
+            <input type="file" id="logo-input" accept="image/png,image/jpeg,image/svg+xml,image/webp" class="visually-hidden">
+          </label>
+          <div class="logo-upload-info">
+            <div class="hint">PNG ou JPG, idéalement carré, 2 Mo max.</div>
+            <div class="logo-upload-actions">
+              <button type="button" class="link-btn" id="logo-pick">Choisir un logo</button>
+              <button type="button" class="link-btn" id="logo-remove" style="color:var(--color-danger); display:none;">Retirer</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div class="field span-2">
+            <label for="company-name">Nom de l'entreprise</label>
+            <input type="text" id="company-name" placeholder="Ex. Atelier Ivoire SARL">
+          </div>
+          <div class="field span-2">
+            <label for="company-address">Adresse</label>
+            <input type="text" id="company-address" placeholder="Cocody, Abidjan, Côte d'Ivoire">
+          </div>
+          <div class="field">
+            <label for="company-phone">Téléphone</label>
+            <input type="tel" id="company-phone" placeholder="+225 07 00 00 00 00">
+          </div>
+          <div class="field">
+            <label for="company-email">E-mail</label>
+            <input type="email" id="company-email" placeholder="contact@entreprise.com">
+          </div>
+          <div class="field span-2">
+            <label for="company-tax-id">Identifiant fiscal (optionnel)</label>
+            <input type="text" id="company-tax-id" placeholder="N° RCCM / compte contribuable">
+          </div>
+        </div>
+      </div>
+
+      <!-- Client -->
+      <div class="card" id="card-client">
+        <div class="card-head">
+          <div class="card-head-left">
+            <div class="card-icon"><i class="icon" data-lucide="circle-user-round"></i></div>
+            <div>
+              <div class="card-title">Client</div>
+              <div class="card-desc">Le destinataire du devis.</div>
+            </div>
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field span-2">
+            <label for="client-name">Nom du client</label>
+            <input type="text" id="client-name" placeholder="Ex. SCI Les Palmiers">
+          </div>
+          <div class="field span-2">
+            <label for="client-address">Adresse</label>
+            <input type="text" id="client-address" placeholder="Adresse du client">
+          </div>
+          <div class="field">
+            <label for="client-phone">Téléphone</label>
+            <input type="tel" id="client-phone" placeholder="+225 ...">
+          </div>
+          <div class="field">
+            <label for="client-email">E-mail</label>
+            <input type="email" id="client-email" placeholder="client@email.com">
+          </div>
+        </div>
+      </div>
+
+      <!-- Prestations -->
+      <div class="card" id="card-items">
+        <div class="card-head">
+          <div class="card-head-left">
+            <div class="card-icon"><i class="icon" data-lucide="list"></i></div>
+            <div>
+              <div class="card-title">Prestations</div>
+              <div class="card-desc">Ajoutez chaque ligne du devis.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="items-table-wrap">
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th class="num">Qté</th>
+                <th class="num">Prix unitaire</th>
+                <th class="num">Total</th>
+                <th aria-hidden="true"></th>
+              </tr>
+            </thead>
+            <tbody id="items-body"></tbody>
+          </table>
+        </div>
+
+        <button type="button" class="add-row-btn" id="btn-add-item">
+          <i class="icon" data-lucide="plus"></i> Ajouter une ligne
+        </button>
+
+        <div class="totals-box">
+          <div class="totals-row">
+            <span>Sous-total</span>
+            <span class="tnum" id="sum-subtotal">0</span>
+          </div>
+          <div class="totals-row">
+            <span>Remise</span>
+            <span class="field-row">
+              <input type="number" id="input-discount" class="rate-input" value="0" min="0" max="100" step="0.5"> %
+            </span>
+          </div>
+          <div class="totals-row">
+            <span>TVA</span>
+            <span class="field-row">
+              <input type="number" id="input-tax" class="rate-input" value="0" min="0" max="100" step="0.5"> %
+            </span>
+          </div>
+          <div class="totals-row grand">
+            <span>Total</span>
+            <span class="tnum" id="sum-total">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conditions -->
+      <div class="card" id="card-conditions">
+        <div class="card-head">
+          <div class="card-head-left">
+            <div class="card-icon"><i class="icon" data-lucide="settings"></i></div>
+            <div>
+              <div class="card-title">Conditions</div>
+              <div class="card-desc">Devise, dates et notes affichées sur le devis.</div>
+            </div>
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="input-currency">Devise</label>
+            <select id="input-currency">
+              <option value="XOF">FCFA (XOF)</option>
+              <option value="EUR">Euro (€)</option>
+              <option value="USD">Dollar US ($)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="input-issue-date">Date d'émission</label>
+            <input type="date" id="input-issue-date">
+          </div>
+          <div class="field">
+            <label for="input-validity">Validité (jours)</label>
+            <input type="number" id="input-validity" min="1" value="30">
+          </div>
+          <div class="field">
+            <label for="input-number">Numéro de devis</label>
+            <input type="text" id="input-number" readonly>
+          </div>
+          <div class="field span-2">
+            <label for="input-notes">Notes / conditions de paiement</label>
+            <textarea id="input-notes" placeholder="Ex. Acompte de 50% à la commande, solde à la livraison."></textarea>
+          </div>
+          <div class="field span-2">
+            <label>Design du devis</label>
+            <div class="design-picker" id="design-picker">
+              <button class="design-opt is-selected" data-design="minimaliste">
+                <span class="design-swatch" style="--swatch:#1a2332"></span>
+                <span class="design-label">Minimaliste</span>
+              </button>
+              <button class="design-opt" data-design="ocean">
+                <span class="design-swatch" style="--swatch:#0a5c8a"></span>
+                <span class="design-label">Océan</span>
+              </button>
+              <button class="design-opt" data-design="emeraude">
+                <span class="design-swatch" style="--swatch:#1a7a5c"></span>
+                <span class="design-label">Émeraude</span>
+              </button>
+              <button class="design-opt" data-design="bordeaux">
+                <span class="design-swatch" style="--swatch:#7a1a2e"></span>
+                <span class="design-label">Bordeaux</span>
+              </button>
+              <button class="design-opt" data-design="sable">
+                <span class="design-swatch" style="--swatch:#c4956a"></span>
+                <span class="design-label">Sable</span>
+              </button>
+              <button class="design-opt" data-design="ardoise">
+                <span class="design-swatch" style="--swatch:#4a5568"></span>
+                <span class="design-label">Ardoise</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============ Colonne aperçu ============ -->
+    <section class="preview-col">
+      <div class="preview-toolbar">
+        <span class="badge badge-gold"><i class="icon" style="width:12px;height:12px;" data-lucide="sparkles"></i> Aperçu en direct</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button type="button" class="btn ghost-btn btn-sm" id="btn-sign">
+            <i class="icon" data-lucide="pen"></i><span class="btn-label">Signer</span>
+          </button>
+          <span class="badge badge-muted" id="autosave-indicator">Enregistré</span>
+        </div>
+      </div>
+      <div class="preview-stage">
+        <article class="paper" id="quote-preview"></article>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ============ Modal signature ============ -->
+<div class="sign-overlay" id="sign-overlay">
+  <div class="sign-modal">
+    <div class="sign-modal-head">
+      <div class="card-title">Signer le devis</div>
+      <button type="button" class="btn btn-icon ghost-btn" id="sign-close" title="Fermer">
+        <i class="icon" data-lucide="x"></i>
+      </button>
+    </div>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 14px;">Tracez votre signature ci-dessous</p>
+    <div class="sign-canvas-wrap">
+      <canvas id="sign-canvas" width="460" height="180"></canvas>
+    </div>
+    <div class="sign-modal-actions">
+      <button type="button" class="btn ghost-btn" id="sign-clear">
+        <i class="icon" data-lucide="eraser"></i> Effacer
+      </button>
+      <button type="button" class="btn primary-btn" id="sign-confirm">
+        <i class="icon" data-lucide="check"></i> Confirmer
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Tiroir historique ============ -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<aside class="drawer" id="history-drawer" aria-label="Historique des devis">
+  <div class="drawer-head">
+    <div class="card-title">Historique des devis</div>
+    <button class="btn btn-icon ghost-btn" id="drawer-close" title="Fermer">
+      <i class="icon" data-lucide="x"></i>
+    </button>
+  </div>
+  <div class="drawer-body" id="history-list"></div>
+</aside>
+
+<!-- ============ Toasts ============ -->
+<div class="toast-stack" id="toast-stack"></div>
+
+<!-- ============ Bibliothèques PDF (scripts classiques exposés sur window) ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+
+<script src="js/app.js"></script>
+</body>
+</html>
