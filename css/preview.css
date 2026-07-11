@@ -344,6 +344,42 @@
   --paper-bg-alt: #eef2ff;
 }
 
+.paper.design-rose {
+  --paper-accent: #e11d48;
+  --paper-line: #ffe4e6;
+  --paper-bg-alt: #fff1f2;
+}
+
+.paper.design-violet {
+  --paper-accent: #7c3aed;
+  --paper-line: #ede9fe;
+  --paper-bg-alt: #f5f3ff;
+}
+
+.paper.design-teal {
+  --paper-accent: #0d9488;
+  --paper-line: #ccfbf1;
+  --paper-bg-alt: #f0fdfa;
+}
+
+.paper.design-orange {
+  --paper-accent: #ea580c;
+  --paper-line: #ffedd5;
+  --paper-bg-alt: #fff7ed;
+}
+
+.paper.design-fuchsia {
+  --paper-accent: #d946ef;
+  --paper-line: #fae8ff;
+  --paper-bg-alt: #fdf4ff;
+}
+
+.paper.design-azure {
+  --paper-accent: #2563eb;
+  --paper-line: #dbeafe;
+  --paper-bg-alt: #eff6ff;
+}
+
 /* ---------- Mobile ---------- */
 
 @media (max-width: 640px) {
