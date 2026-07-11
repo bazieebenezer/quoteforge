@@ -315,33 +315,33 @@
 /* ---------- Designs ---------- */
 
 .paper.design-ocean {
-  --paper-accent: #0a5c8a;
-  --paper-line: #dce8f0;
-  --paper-bg-alt: #f0f6fb;
+  --paper-accent: #0891b2;
+  --paper-line: #cffafe;
+  --paper-bg-alt: #ecfeff;
 }
 
 .paper.design-emeraude {
-  --paper-accent: #1a7a5c;
-  --paper-line: #dceee6;
-  --paper-bg-alt: #eef7f3;
+  --paper-accent: #059669;
+  --paper-line: #d1fae5;
+  --paper-bg-alt: #ecfdf5;
 }
 
 .paper.design-bordeaux {
-  --paper-accent: #7a1a2e;
-  --paper-line: #f0e2e6;
-  --paper-bg-alt: #faf0f2;
+  --paper-accent: #be185d;
+  --paper-line: #fce7f3;
+  --paper-bg-alt: #fdf2f8;
 }
 
 .paper.design-sable {
-  --paper-accent: #c4956a;
-  --paper-line: #f0ebe4;
-  --paper-bg-alt: #faf7f3;
+  --paper-accent: #d97706;
+  --paper-line: #fef3c7;
+  --paper-bg-alt: #fffbeb;
 }
 
 .paper.design-ardoise {
-  --paper-accent: #4a5568;
-  --paper-line: #e8eaed;
-  --paper-bg-alt: #f4f5f7;
+  --paper-accent: #4f46e5;
+  --paper-line: #e0e7ff;
+  --paper-bg-alt: #eef2ff;
 }
 
 /* ---------- Mobile ---------- */
